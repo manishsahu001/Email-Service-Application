@@ -45,9 +45,9 @@ public class EmailService {
             // Send welcome email to new user
             sendHtmlEmail(
                 user.getEmail(),
-                "Welcome to Vgrid Solutions - Your Account is Ready",
+                "Welcome to Email Solutions - Your Account is Ready",
                 "welcome-user",
-                prepareUserContext(user, "Welcome to Vgrid Solutions")
+                prepareUserContext(user, "Welcome to Email Solutions")
             );
 
         } catch (MessagingException e) {
@@ -122,10 +122,10 @@ public class EmailService {
         Context context = new Context();
         context.setVariable("user", user);
         context.setVariable("title", title);
-        context.setVariable("companyName", "VRrid Solutions");
-        context.setVariable("companyWebsite", "www.vrridsolutions.com");
-        context.setVariable("supportEmail", "support@vrridsolutions.com");
-        context.setVariable("supportPhone", "+1-555-VRRID");
+        context.setVariable("companyName", "email Solutions");
+        context.setVariable("companyWebsite", "www.emailsolutions.com");
+        context.setVariable("supportEmail", "support@emailsolutions.com");
+        context.setVariable("supportPhone", "+1-555-email");
         context.setVariable("currentTime", LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")));
         return context;
     }
