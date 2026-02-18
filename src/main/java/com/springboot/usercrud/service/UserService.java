@@ -21,7 +21,7 @@ public class UserService {
     public User save(User user) {
         user.setCreatedAt(LocalDateTime.now());
         user.setUpdatedAt(LocalDateTime.now());
-        user.setActive(true); // New users are active by default
+        user.setActive(true); 
 
         User savedUser = userRepository.save(user);
         try {
@@ -69,7 +69,6 @@ public class UserService {
         if (optionalUser.isPresent()) {
             User currentUser = optionalUser.get();
 
-            // Track changes for email notification
             StringBuilder changedFields = new StringBuilder();
 
             if (!currentUser.getFirstName().equals(user.getFirstName())) {
@@ -113,7 +112,6 @@ public class UserService {
 
             User updatedUser = userRepository.save(currentUser);
 
-            // Send email notification if there were changes
             if (!changedFields.isEmpty()) {
                 try {
                     emailService.sendUserUpdatedNotification(updatedUser, changedFields.toString());
